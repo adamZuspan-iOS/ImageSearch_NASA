@@ -13,6 +13,7 @@ struct SearchBarView: View {
         VStack(alignment: .center, spacing: 8) {
             TextField("Search", text: $searchText)
                 .textFieldStyle(.roundedBorder)
+                .keyboardType(.default)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(.black, lineWidth: 2)
