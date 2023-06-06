@@ -9,8 +9,10 @@ import SwiftUI
 
 struct SearchBarView: View {
     @State var searchText: String = ""
+    var searchButtonPressed: () -> ()
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
+            //MARK: Search Text Entry
             TextField("Search", text: $searchText)
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.default)
@@ -21,8 +23,13 @@ struct SearchBarView: View {
                 .padding(8)
             HStack(alignment: .top) {
                 Spacer()
+                //MARK: Search Button
                 Button(action: {
                     print("SearchButtonPressed")
+                    Task {
+                        await SearchResultsViewModel().getSearchResultsFor(query: searchText)
+                        searchButtonPressed()
+                    }
                 }) {
                     HStack {
                         Text("Search")
@@ -35,17 +42,18 @@ struct SearchBarView: View {
                 }
                 .backgroundStyle(.black)
                 .buttonStyle(.bordered)
+                .border(.black, width: 1)
+                .cornerRadius(2)
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: 8)
             .padding(8)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView()
+        SearchBarView(searchButtonPressed: {})
     }
 }
