@@ -15,7 +15,6 @@ enum APIError: Error {
 }
 class NetworkService {
     private let baseURL = "https://images-api.nasa.gov/"
-//    private let mediaType = "&media_type=image"
     
     //MARK: Build URL
     private func buildURL(path: String, queryItems: [URLQueryItem] = []) throws -> URL {
@@ -27,7 +26,6 @@ class NetworkService {
         guard let url = urlComponents?.url else {
             throw APIError.invalidURL
         }
-        print("CONSTRUCTED FULL URL is -> \(url)")
         return url
     }
     
@@ -41,7 +39,7 @@ class NetworkService {
         }
         
         guard (200...299).contains(httpResponse.statusCode) else {
-            // Handle specific HTTP status codes as needed
+            //TODO: Handle specific HTTP status codes as needed
             throw APIError.networkError(NSError(domain: NSURLErrorDomain, code: httpResponse.statusCode, userInfo: nil))
         }
         
@@ -52,7 +50,6 @@ class NetworkService {
         do {
             let decoder = JSONDecoder()
             let apiResponse = try decoder.decode(SearchedDataListModel.self, from: responseData)
-            print(apiResponse)
             return apiResponse
         } catch {
             throw APIError.decodingError(error)

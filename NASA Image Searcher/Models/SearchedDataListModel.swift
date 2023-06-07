@@ -21,7 +21,8 @@ struct Collection: Codable {
         case items
     }
 }
-struct Items: Codable {
+struct Items: Codable, Identifiable {
+    var id = UUID()
     var data: [RelevantData]
     var links: [Links]
     
@@ -29,7 +30,8 @@ struct Items: Codable {
         case data, links
     }
 }
-struct RelevantData: Codable {
+struct RelevantData: Codable, Identifiable {
+    var id = UUID()
     var title: String
     var dateCreated_ISO8601: String
     var description: String?
@@ -57,7 +59,8 @@ struct RelevantData: Codable {
         description_508 = try container.decodeIfPresent(String.self, forKey: .description_508) ?? nil
     }
 }
-struct Links: Codable {
+struct Links: Codable, Identifiable {
+    var id = UUID()
     var imageURL: String
     enum CodingKeys: String, CodingKey {
         case imageURL = "href"

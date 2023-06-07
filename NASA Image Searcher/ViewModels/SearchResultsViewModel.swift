@@ -6,44 +6,56 @@
 //
 
 import SwiftUI
+import Foundation
 
 class SearchResultsViewModel: ObservableObject {
     //MARK: Network Service Var
     private var networkService: NetworkService
     
     //MARK: Published Vars
-    @Published var title: String?
-    @Published var imageURL: URL?
-    @Published var description: String?
-    @Published var dateCreated: String?
+    @Published var collectionOfData: Collection?
+    @Published var isLoadingNetworkResponse: Bool = false
     
-    //MARK: Computed Vars
+    //TODO: Move this functionality into a string extension file
     ///Should update due to being dependant on a @Published but if not handle optional value in the view for @Published
-    var dateCreatedString: String {
-        guard let dateCreatedDate = dateCreated else {
-            return ""
-        }
-        return dateCreatedDate
-    }
+    //    var dateCreatedString: String {
+    //        guard let dateCreatedDate = dateCreated else {
+    //            return ""
+    //        }
+    //        return dateCreatedDate
+    //    }
     
     init(networkService: NetworkService = NetworkService()) {
         self.networkService = networkService
     }
     
     func getSearchResultsFor(query: String) async {
+        await setLoadingState(isLoading: true)
         do {
             let queryItems = [URLQueryItem(name: "q", value: query)]
             let apiResponse = try await networkService.makeAPIRequest(path: "search", queryItems: queryItems)
-            // Handle the API response
-            if let item = apiResponse.collection.items.first {
-                title = item.data.first?.title
-                imageURL = URL(string: item.links.first?.imageURL ?? "")
-                description = item.data.description
-                dateCreated = item.data.first?.dateCreatedFormatted ?? item.data.first?.dateCreated_ISO8601
+            DispatchQueue.main.async {
+                self.collectionOfData = apiResponse.collection
+                self.isLoadingNetworkResponse = false
             }
         } catch {
+            //TODO: Handle the error passback
             // Handle the error
             print(error)
+            await setLoadingState(isLoading: false)
         }
+    }
+    
+    @MainActor
+    private func setLoadingState(isLoading: Bool) {
+        isLoadingNetworkResponse = isLoading
+    }
+    
+    func imageURLFor(links: [Links]) -> [URL?] {
+        var imageURLs = [URL?]()
+        for link in links {
+            imageURLs.append(URL(string: link.imageURL))
+        }
+        return imageURLs
     }
 }

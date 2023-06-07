@@ -11,6 +11,8 @@
 		C90A117C2A2EE313002E7953 /* SearchedDataListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A117B2A2EE313002E7953 /* SearchedDataListModel.swift */; };
 		C90A117F2A2EE960002E7953 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A117E2A2EE960002E7953 /* NetworkService.swift */; };
 		C90A11812A2EEF35002E7953 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A11802A2EEF35002E7953 /* SearchResultsViewModel.swift */; };
+		C90A11832A2FA373002E7953 /* SearchedResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A11822A2FA373002E7953 /* SearchedResultsListView.swift */; };
+		C9724A1B2A302E7900F39664 /* TitleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9724A1A2A302E7900F39664 /* TitleImageView.swift */; };
 		C97E524D2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E524C2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift */; };
 		C97E524F2A2D460C007E9BA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E524E2A2D460C007E9BA3 /* ContentView.swift */; };
 		C97E52512A2D460E007E9BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97E52502A2D460E007E9BA3 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		C90A117B2A2EE313002E7953 /* SearchedDataListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedDataListModel.swift; sourceTree = "<group>"; };
 		C90A117E2A2EE960002E7953 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C90A11802A2EEF35002E7953 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
+		C90A11822A2FA373002E7953 /* SearchedResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedResultsListView.swift; sourceTree = "<group>"; };
+		C9724A1A2A302E7900F39664 /* TitleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageView.swift; sourceTree = "<group>"; };
 		C97E52492A2D460C007E9BA3 /* NASA Image Searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NASA Image Searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97E524C2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA_Image_SearcherApp.swift; sourceTree = "<group>"; };
 		C97E524E2A2D460C007E9BA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 				C97E524E2A2D460C007E9BA3 /* ContentView.swift */,
 				C90A11772A2EE149002E7953 /* HomeScreenForSearchingView.swift */,
 				C97E52762A2D4AB6007E9BA3 /* SearchBarView.swift */,
+				C90A11822A2FA373002E7953 /* SearchedResultsListView.swift */,
+				C9724A1A2A302E7900F39664 /* TitleImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +223,8 @@
 			dependencies = (
 			);
 			name = "NASA Image Searcher";
+			packageProductDependencies = (
+			);
 			productName = "NASA Image Searcher";
 			productReference = C97E52492A2D460C007E9BA3 /* NASA Image Searcher.app */;
 			productType = "com.apple.product-type.application";
@@ -289,6 +297,9 @@
 				Base,
 			);
 			mainGroup = C97E52402A2D460C007E9BA3;
+			packageReferences = (
+				C90A11842A2FD59C002E7953 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = C97E524A2A2D460C007E9BA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -334,6 +345,8 @@
 				C97E524F2A2D460C007E9BA3 /* ContentView.swift in Sources */,
 				C97E52772A2D4AB6007E9BA3 /* SearchBarView.swift in Sources */,
 				C97E52792A2D53F0007E9BA3 /* ViewExtensions.swift in Sources */,
+				C9724A1B2A302E7900F39664 /* TitleImageView.swift in Sources */,
+				C90A11832A2FA373002E7953 /* SearchedResultsListView.swift in Sources */,
 				C90A11812A2EEF35002E7953 /* SearchResultsViewModel.swift in Sources */,
 				C90A11782A2EE149002E7953 /* HomeScreenForSearchingView.swift in Sources */,
 				C90A117C2A2EE313002E7953 /* SearchedDataListModel.swift in Sources */,
@@ -505,6 +518,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,6 +548,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,6 +678,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C90A11842A2FD59C002E7953 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C97E52412A2D460C007E9BA3 /* Project object */;
 }

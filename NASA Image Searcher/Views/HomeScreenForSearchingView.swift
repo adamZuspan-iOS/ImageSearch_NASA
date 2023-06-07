@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct HomeScreenForSearchingView: View {
+    @ObservedObject var searchedDataVM = SearchResultsViewModel()
+    @State private var showDataList: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
                 VStack(alignment: .center) {
                     Text("NASA Image Search")
-                        .fontDesign(.monospaced)
+                        .font(.system(size: 28, design: .monospaced))
                         .fontWeight(.bold)
-                        .font(Font.system(size: 28))
                         .padding(.top, 8)
                     Spacer()
-                    SearchBarView() {
-
+                    Group {
+                        SearchBarView(showListView: $showDataList)
+                            .environmentObject(searchedDataVM)
+                        if showDataList {
+                            SearchedResultsListView()
+                                .transition(.scale)
+                                .environmentObject(searchedDataVM)
+                        }
                     }
                     Text("Search NASA Images Above")
                         .padding(.top, 16)
-                        .font(Font.system(size: 14))
-                        .fontWeight(.light)
+                        .font(.system(size: 14, weight: .light))
                     Spacer()
                 }
                 .vAlign(.leading)

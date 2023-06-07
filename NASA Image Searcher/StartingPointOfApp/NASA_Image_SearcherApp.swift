@@ -12,7 +12,6 @@ struct NASA_Image_SearcherApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            
         }
     }
 }
