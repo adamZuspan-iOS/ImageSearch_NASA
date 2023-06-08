@@ -47,14 +47,14 @@ struct SearchBarView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: 8)
-            .padding(8)
+            .padding(4)
         }
     }
     private func retrieveData() {
         showListView = false
         Task {
             await searchedDataVM.getSearchResultsFor(query: searchText)
-            withAnimation(Animation.easeOut(duration: 0.5)) {
+            withAnimation(Animation.easeOut(duration: 0.75)) {
                 showListView = true
             }
         }

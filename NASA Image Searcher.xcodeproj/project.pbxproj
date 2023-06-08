@@ -13,8 +13,11 @@
 		C90A11812A2EEF35002E7953 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A11802A2EEF35002E7953 /* SearchResultsViewModel.swift */; };
 		C90A11832A2FA373002E7953 /* SearchedResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A11822A2FA373002E7953 /* SearchedResultsListView.swift */; };
 		C9724A1B2A302E7900F39664 /* TitleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9724A1A2A302E7900F39664 /* TitleImageView.swift */; };
+		C9724A1D2A31012D00F39664 /* FailedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9724A1C2A31012D00F39664 /* FailedImageView.swift */; };
+		C9724A1F2A3194DF00F39664 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9724A1E2A3194DF00F39664 /* AsyncImageView.swift */; };
+		C9724A212A31AFDA00F39664 /* ThickDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9724A202A31AFD900F39664 /* ThickDividerView.swift */; };
+		C9724A232A31B20D00F39664 /* DetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9724A222A31B20D00F39664 /* DetailPageView.swift */; };
 		C97E524D2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E524C2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift */; };
-		C97E524F2A2D460C007E9BA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E524E2A2D460C007E9BA3 /* ContentView.swift */; };
 		C97E52512A2D460E007E9BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97E52502A2D460E007E9BA3 /* Assets.xcassets */; };
 		C97E52542A2D460E007E9BA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97E52532A2D460E007E9BA3 /* Preview Assets.xcassets */; };
 		C97E525E2A2D460E007E9BA3 /* NASA_Image_SearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E525D2A2D460E007E9BA3 /* NASA_Image_SearcherTests.swift */; };
@@ -48,9 +51,12 @@
 		C90A11802A2EEF35002E7953 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
 		C90A11822A2FA373002E7953 /* SearchedResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedResultsListView.swift; sourceTree = "<group>"; };
 		C9724A1A2A302E7900F39664 /* TitleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageView.swift; sourceTree = "<group>"; };
+		C9724A1C2A31012D00F39664 /* FailedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedImageView.swift; sourceTree = "<group>"; };
+		C9724A1E2A3194DF00F39664 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		C9724A202A31AFD900F39664 /* ThickDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickDividerView.swift; sourceTree = "<group>"; };
+		C9724A222A31B20D00F39664 /* DetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageView.swift; sourceTree = "<group>"; };
 		C97E52492A2D460C007E9BA3 /* NASA Image Searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NASA Image Searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97E524C2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA_Image_SearcherApp.swift; sourceTree = "<group>"; };
-		C97E524E2A2D460C007E9BA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C97E52502A2D460E007E9BA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C97E52532A2D460E007E9BA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C97E52592A2D460E007E9BA3 /* NASA Image SearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NASA Image SearcherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,11 +180,14 @@
 		C97E527A2A2D5427007E9BA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C97E524E2A2D460C007E9BA3 /* ContentView.swift */,
 				C90A11772A2EE149002E7953 /* HomeScreenForSearchingView.swift */,
 				C97E52762A2D4AB6007E9BA3 /* SearchBarView.swift */,
 				C90A11822A2FA373002E7953 /* SearchedResultsListView.swift */,
 				C9724A1A2A302E7900F39664 /* TitleImageView.swift */,
+				C9724A1C2A31012D00F39664 /* FailedImageView.swift */,
+				C9724A1E2A3194DF00F39664 /* AsyncImageView.swift */,
+				C9724A202A31AFD900F39664 /* ThickDividerView.swift */,
+				C9724A222A31B20D00F39664 /* DetailPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,16 +351,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C97E524F2A2D460C007E9BA3 /* ContentView.swift in Sources */,
+				C9724A212A31AFDA00F39664 /* ThickDividerView.swift in Sources */,
 				C97E52772A2D4AB6007E9BA3 /* SearchBarView.swift in Sources */,
 				C97E52792A2D53F0007E9BA3 /* ViewExtensions.swift in Sources */,
+				C9724A232A31B20D00F39664 /* DetailPageView.swift in Sources */,
 				C9724A1B2A302E7900F39664 /* TitleImageView.swift in Sources */,
 				C90A11832A2FA373002E7953 /* SearchedResultsListView.swift in Sources */,
 				C90A11812A2EEF35002E7953 /* SearchResultsViewModel.swift in Sources */,
 				C90A11782A2EE149002E7953 /* HomeScreenForSearchingView.swift in Sources */,
 				C90A117C2A2EE313002E7953 /* SearchedDataListModel.swift in Sources */,
 				C97E524D2A2D460C007E9BA3 /* NASA_Image_SearcherApp.swift in Sources */,
+				C9724A1D2A31012D00F39664 /* FailedImageView.swift in Sources */,
 				C90A117F2A2EE960002E7953 /* NetworkService.swift in Sources */,
+				C9724A1F2A3194DF00F39664 /* AsyncImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

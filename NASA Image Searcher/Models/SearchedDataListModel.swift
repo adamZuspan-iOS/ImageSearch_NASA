@@ -14,6 +14,7 @@ struct SearchedDataListModel: Codable {
         case collection
     }
 }
+
 struct Collection: Codable {
     var items: [Items]
     
@@ -21,6 +22,7 @@ struct Collection: Codable {
         case items
     }
 }
+
 struct Items: Codable, Identifiable {
     var id = UUID()
     var data: [RelevantData]
@@ -30,6 +32,7 @@ struct Items: Codable, Identifiable {
         case data, links
     }
 }
+
 struct RelevantData: Codable, Identifiable {
     var id = UUID()
     var title: String
@@ -59,6 +62,7 @@ struct RelevantData: Codable, Identifiable {
         description_508 = try container.decodeIfPresent(String.self, forKey: .description_508) ?? nil
     }
 }
+
 struct Links: Codable, Identifiable {
     var id = UUID()
     var imageURL: String
@@ -67,10 +71,23 @@ struct Links: Codable, Identifiable {
     }
 }
 
+struct DataForDetailView {
+    var links: [Links]
+    var title: String
+    var description: String
+    var dateCreated: String
+}
+
+
 extension RelevantData {
     var dateCreatedFormatted: String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
-        return dateFormatter.string(for: dateCreated_ISO8601)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if let date = dateFormatter.date(from: dateCreated_ISO8601) {
+            dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
+            return dateFormatter.string(from: date)
+        }
+        return nil
     }
 }

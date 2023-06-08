@@ -11,7 +11,8 @@ import SwiftUI
 struct NASA_Image_SearcherApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreenForSearchingView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }

@@ -15,16 +15,7 @@ class SearchResultsViewModel: ObservableObject {
     //MARK: Published Vars
     @Published var collectionOfData: Collection?
     @Published var isLoadingNetworkResponse: Bool = false
-    
-    //TODO: Move this functionality into a string extension file
-    ///Should update due to being dependant on a @Published but if not handle optional value in the view for @Published
-    //    var dateCreatedString: String {
-    //        guard let dateCreatedDate = dateCreated else {
-    //            return ""
-    //        }
-    //        return dateCreatedDate
-    //    }
-    
+        
     init(networkService: NetworkService = NetworkService()) {
         self.networkService = networkService
     }
@@ -57,5 +48,12 @@ class SearchResultsViewModel: ObservableObject {
             imageURLs.append(URL(string: link.imageURL))
         }
         return imageURLs
+    }
+    
+    func retrieveDataForDetailView(data: RelevantData, links: [Links]) -> DetailViewData {
+        let title = data.title
+        let description = data.description ?? data.description_508 ?? "No Description Available"
+        let dateCreated = data.dateCreatedFormatted ?? data.dateCreated_ISO8601 
+        return DetailViewData(links: links, title: title, description: description, dateCreated: dateCreated)
     }
 }

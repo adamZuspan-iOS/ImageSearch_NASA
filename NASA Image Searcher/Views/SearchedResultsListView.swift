@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+typealias DetailViewData = (links: [Links], title: String, description: String, dateCreated: String)
+
 struct SearchedResultsListView: View {
     @EnvironmentObject var searchedDataVM: SearchResultsViewModel
     @State private var imageIsLoading = true
@@ -15,10 +17,19 @@ struct SearchedResultsListView: View {
             ProgressView("Loading searched content")
         } else {
             if let displayedData = searchedDataVM.collectionOfData {
-                List(displayedData.items) { item in
-                    ForEach(item.data) { data in
-                        TitleImageView(data: data, links: item.links)
+                NavigationView {
+                    List(displayedData.items) { item in
+                        ForEach(item.data) { data in
+                            let dataForDetailsView = searchedDataVM.retrieveDataForDetailView(data: data, links: item.links)
+                            NavigationLink(destination: DetailPageView(dataForDisplay: dataForDetailsView)) {
+                                TitleImageView(data: data, links: item.links)
+                                    .environmentObject(searchedDataVM)
+                            }
+                            .listRowSeparator(.hidden)
+                            ThickDividerView()
+                        }
                     }
+                    .listStyle(.inset)
                 }
             } else {
                 //TODO: Show an alert with user friendly error message and option for retrying the network call

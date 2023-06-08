@@ -24,13 +24,14 @@ struct HomeScreenForSearchingView: View {
                             .environmentObject(searchedDataVM)
                         if showDataList {
                             SearchedResultsListView()
+                                .padding(.top, 12)
                                 .transition(.scale)
                                 .environmentObject(searchedDataVM)
                         }
                     }
                     Text("Search NASA Images Above")
-                        .padding(.top, 16)
-                        .font(.system(size: 14, weight: .light))
+                        .padding(.top, showDataList ? 8 : 16)
+                        .font(.system(size: 12, weight: .light))
                     Spacer()
                 }
                 .vAlign(.leading)
