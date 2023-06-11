@@ -15,21 +15,40 @@ struct SearchedDataListModel: Codable {
     }
 }
 
-struct Collection: Codable {
+struct Collection: Codable, Equatable {
     var items: [Items]
+    var metaData: MetaData
     
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case items
+        case metaData = "metadata"
+    }
+    
+    static func == (lhs: Collection, rhs: Collection) -> Bool {
+        return zip(lhs.items, rhs.items).allSatisfy { $0 == $1 }
     }
 }
 
-struct Items: Codable, Identifiable {
+struct Items: Codable, Equatable,Identifiable {
+    
     var id = UUID()
     var data: [RelevantData]
     var links: [Links]
     
     enum CodingKeys: CodingKey {
         case data, links
+    }
+    
+    static func == (lhs: Items, rhs: Items) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+struct MetaData: Codable {
+    var totalItems: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case totalItems = "total_hits"
     }
 }
 
@@ -63,7 +82,7 @@ struct RelevantData: Codable, Identifiable {
     }
 }
 
-struct Links: Codable, Identifiable {
+struct Links: Codable, Equatable, Identifiable {
     var id = UUID()
     var imageURL: String
     enum CodingKeys: String, CodingKey {
