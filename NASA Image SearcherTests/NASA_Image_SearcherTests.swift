@@ -135,8 +135,6 @@ final class NASA_Image_SearcherTests: XCTestCase {
         let expectedFormattedDate = "Aug 24, 2007, 5:00 PM"
         await viewModel.getSearchResultsFor(query: query)
         let observationCollectionOfData = viewModel.$collectionOfData.sink { value in
-            // Check if the value matches the expected value
-            let expectedFormattedDate = value?.items.first?.data.first?.dateCreatedFormatted
             if let data = value?.items.first?.data.first,
                let links = value?.items.first?.links {
                 let dataForDetailView = self.viewModel.retrieveDataForDetailView(data: data, links: links)
